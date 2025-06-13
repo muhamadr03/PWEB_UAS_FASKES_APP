@@ -16,6 +16,7 @@ class JenisFaskesResource extends Resource
     protected static ?string $model = JenisFaskes::class;
     protected static ?string $navigationIcon = 'heroicon-o-tag';
     protected static ?string $navigationGroup = 'Data Master Faskes';
+    protected static ?string $pluralModelLabel = 'Jenis Fasilitas Kesehatan';
     protected static ?string $modelLabel = 'Jenis Fasilitas Kesehatan';
 
     public static function form(Form $form): Form

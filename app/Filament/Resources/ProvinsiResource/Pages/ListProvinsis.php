@@ -10,6 +10,7 @@ class ListProvinsis extends ListRecords
 {
     protected static string $resource = ProvinsiResource::class;
 
+
     protected function getHeaderActions(): array
     {
         return [

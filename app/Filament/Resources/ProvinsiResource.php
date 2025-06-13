@@ -16,6 +16,7 @@ class ProvinsiResource extends Resource
     protected static ?string $model = Provinsi::class; // Model yang terkait dengan resource ini
     protected static ?string $navigationIcon = 'heroicon-o-map'; // Ikon navigasi di sidebar Filament
     protected static ?string $navigationGroup = 'Data Master Lokasi'; // Grup navigasi
+    protected static ?string $pluralModelLabel = 'Provinsi';
     protected static ?string $modelLabel = 'Provinsi'; // Label model di UI
 
     // Metode untuk mendefinisikan form saat membuat/mengedit data

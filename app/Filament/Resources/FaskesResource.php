@@ -22,6 +22,7 @@ class FaskesResource extends Resource
     protected static ?string $model = Faskes::class;
     protected static ?string $navigationIcon = 'heroicon-o-building-library';
     protected static ?string $modelLabel = 'Fasilitas Kesehatan';
+    protected static ?string $pluralModelLabel = 'Fasilitas Kesehatan';
     protected static ?string $navigationGroup = 'Manajemen Faskes'; // Grup navigasi terpisah
 
     public static function form(Form $form): Form
