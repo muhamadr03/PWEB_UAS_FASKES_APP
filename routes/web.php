@@ -31,7 +31,7 @@ Route::get('/faskes/search', [PublicFaskesController::class, 'index'])->name('fa
 // (OPSIONAL) Rute untuk halaman detail satu fasilitas kesehatan.
 // Jika Anda ingin membuat halaman yang menampilkan informasi lebih rinci tentang satu faskes.
 // Aktifkan baris ini jika Anda membuat view faskes_detail.blade.php dan method show di PublicFaskesController.
-// Route::get('/faskes/{faskes}', [PublicFaskesController::class, 'show'])->name('faskes.show');
+Route::get('/faskes/{faskes}', [PublicFaskesController::class, 'show'])->name('faskes.show');
 
 
 // ========================================================================

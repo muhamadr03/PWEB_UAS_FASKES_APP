@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Http\Controllers; // <<< PASTIKAN NAMESPACE INI BENAR
+namespace App\Http\Controllers;
 
 use App\Models\Faskes; // Impor model Faskes
 use App\Models\Provinsi; // Impor model Provinsi
 use App\Models\JenisFaskes; // Impor model JenisFaskes
-use App\Models\Kabkota; // Impor model Kabkota
+use App\Models\Kabkota; // Pastikan ini diimpor jika model Kabkota digunakan
 use Illuminate\Http\Request;
+use Illuminate\View\View; // <<< TAMBAHKAN INI UNTUK TYPE HINTING
 
-class PublicFaskesController extends Controller // <<< PASTIKAN NAMA KELAS INI BENAR
+class PublicFaskesController extends Controller
 {
-    public function index(Request $request)
+    // Method untuk halaman daftar faskes (ini yang menampilkan landing.blade.php)
+    public function index(Request $request): View // <<< TAMBAHKAN ': View' untuk type hinting
     {
         $query = Faskes::with(['kabkota.provinsi', 'jenisFaskes', 'kategori']);
 
@@ -35,11 +37,25 @@ class PublicFaskesController extends Controller // <<< PASTIKAN NAMA KELAS INI B
         $provinsis = Provinsi::all();
         $jenisFaskes = JenisFaskes::all();
 
-        return view('landing', compact('faskes', 'provinsis', 'jenisFaskes'));
+        // --- BAGIAN INI DITAMBAHKAN UNTUK PETA ---
+        // Anda bisa mendapatkan URL ini dari Google Maps.
+        // Contoh: Cari "Fasilitas Kesehatan Depok" di Google Maps, lalu klik "Share" -> "Embed a map"
+        // Salin URL dari atribut 'src' iframe yang diberikan Google Maps.
+        // URL ini akan menampilkan peta umum untuk area Depok.
+        $mapUrl = "https://www.google.com/maps/embed/v1/place?key=YOUR_Maps_API_KEY&q="; // <<< GANTI DENGAN URL PETA SPESIFIK ANDA
+
+        // Meneruskan variabel $mapUrl ke view
+        return view('landing', compact('faskes', 'provinsis', 'jenisFaskes', 'mapUrl'));
     }
 
-    // Metode untuk detail faskes (opsional)
-    public function show(Faskes $faskes)
+    // Method baru untuk halaman informasi umum website (welcome_info.blade.php)
+    public function welcome(): View // <<< TAMBAHKAN METHOD INI
+    {
+        return view('welcome_info'); // Merender view welcome_info.blade.php
+    }
+
+    // Metode untuk detail faskes (opsional, jika Anda mengaktifkan rutenya)
+    public function show(Faskes $faskes): View // <<< TAMBAHKAN ': View' untuk type hinting
     {
         $faskes->load(['kabkota.provinsi', 'jenisFaskes', 'kategori']);
         return view('faskes_detail', compact('faskes'));

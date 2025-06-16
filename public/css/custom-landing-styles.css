@@ -1,0 +1,55 @@
+/* Custom styles for modern Bootstrap landing page */
+
+/* Background gradient untuk bagian atas halaman (lebih cerah dan dinamis) */
+.bg-light-blue-gradient {
+    background: linear-gradient(to right, #89f7fe, #66a6ff); /* Contoh: perpaduan biru muda dan biru langit */
+    /* Atau coba: background: linear-gradient(to right, #a18cd1, #fbc2eb); */ /* Gradien ungu-pink */
+}
+
+/* Custom primary color override */
+:root {
+    --bs-primary: #007bff; /* Biru default Bootstrap, bisa diubah */
+    --bs-primary-rgb: 0, 123, 255;
+    --bs-info: #17a2b8; /* Info default Bootstrap, bisa diubah */
+    --bs-info-rgb: 23, 162, 184;
+    --bs-success: #28a745; /* Success default Bootstrap, bisa diubah */
+    --bs-success-rgb: 40, 167, 69;
+}
+
+/* Efek shadow yang lebih halus untuk input/select */
+.shadow-sm-sm {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+}
+
+/* Custom colors for Bootstrap gradients */
+.bg-gradient-primary {
+    background: linear-gradient(to right, var(--bs-primary), var(--bs-info)) !important;
+}
+.bg-gradient-info {
+    background: linear-gradient(to right, var(--bs-info), #1abc9c) !important; /* Contoh gradien info ke teal */
+}
+
+/* Efek hover pada card */
+.card-hover:hover {
+    transform: translateY(-8px); /* Geser ke atas lebih jauh */
+    box-shadow: 0 1.5rem 4rem rgba(0,0,0,.25) !important; /* Bayangan lebih besar dan gelap */
+}
+
+/* Paginasi */
+.pagination .page-item .page-link {
+    border-radius: 0.5rem; /* Sudut lebih membulat */
+    margin: 0 0.25rem;
+    transition: all 0.3s ease;
+    border-color: var(--bs-primary-subtle);
+    color: var(--bs-primary);
+}
+.pagination .page-item.active .page-link {
+    background-color: var(--bs-primary); /* Warna aktif paginasi */
+    border-color: var(--bs-primary);
+    color: white;
+}
+.pagination .page-item .page-link:hover {
+    background-color: var(--bs-info); /* Warna hover paginasi */
+    border-color: var(--bs-info);
+    color: white;
+}
