@@ -51,7 +51,7 @@ class PublicFaskesController extends Controller
     // Method baru untuk halaman informasi umum website (welcome_info.blade.php)
     public function welcome(): View // <<< TAMBAHKAN METHOD INI
     {
-        return view('welcome_info'); // Merender view welcome_info.blade.php
+        return view('welcome'); // Merender view welcome.blade.php
     }
 
     // Metode untuk detail faskes (opsional, jika Anda mengaktifkan rutenya)
