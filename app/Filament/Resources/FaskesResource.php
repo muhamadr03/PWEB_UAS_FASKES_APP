@@ -7,6 +7,8 @@ use App\Models\Faskes;
 use App\Models\Kabkota; // Impor model terkait
 use App\Models\JenisFaskes; // Impor model terkait
 use App\Models\Kategori; // Impor model terkait
+use App\Models\User; // Pastikan ini diimpor
+use Illuminate\Database\Eloquent\Model; // Pastikan ini diimpor
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea; // Untuk kolom alamat yang lebih besar
@@ -17,13 +19,48 @@ use Filament\Tables\Table;
 use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
 
+
 class FaskesResource extends Resource
 {
     protected static ?string $model = Faskes::class;
-    protected static ?string $navigationIcon = 'heroicon-o-building-library';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
     protected static ?string $modelLabel = 'Fasilitas Kesehatan';
     protected static ?string $pluralModelLabel = 'Fasilitas Kesehatan';
     protected static ?string $navigationGroup = 'Manajemen Faskes'; // Grup navigasi terpisah
+
+
+    // --- Otorisasi untuk FaskesResource (dan resource lainnya seperti Provinsi, Kabkota, dll.) ---
+    // Semua metode ini akan memeriksa apakah user adalah ADMIN (BUKAN SUPER_ADMIN)
+    public static function canViewAny(): bool // <<< PINDAHKAN INI KE ATAS
+    {
+        // Hanya admin yang bisa melihat daftar faskes
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canView(Model $record): bool
+    {
+        return auth()->user()->isAdmin();
+    }
 
     public static function form(Form $form): Form
     {

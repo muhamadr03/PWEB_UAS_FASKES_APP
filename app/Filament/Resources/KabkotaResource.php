@@ -5,6 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\KabkotaResource\Pages;
 use App\Models\Kabkota;
 use App\Models\Provinsi; // Penting: Impor model Provinsi
+use App\Models\User; // Pastikan ini diimpor
+use Illuminate\Database\Eloquent\Model; // Pastikan ini diimpor
 use Filament\Forms\Components\Select; // Untuk dropdown
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -21,6 +23,44 @@ class KabkotaResource extends Resource
     protected static ?string $navigationGroup = 'Data Master Lokasi';
     protected static ?string $pluralModelLabel = 'Kabupaten/Kota';
     protected static ?string $modelLabel = 'Kabupaten/Kota';
+
+    // --- Otorisasi untuk KabkotaResource ---
+    // Semua metode ini akan memeriksa apakah user adalah ADMIN (BUKAN SUPER_ADMIN)
+    public static function canViewAny(): bool
+    {
+        // Hanya admin yang bisa melihat daftar kabupaten/kota
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canCreate(): bool
+    {
+        // Hanya admin yang bisa membuat kabupaten/kota
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        // Hanya admin yang bisa mengedit kabupaten/kota
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        // Hanya admin yang bisa menghapus kabupaten/kota
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        // Hanya admin yang bisa menghapus banyak kabupaten/kota
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canView(Model $record): bool
+    {
+        // Hanya admin yang bisa melihat detail kabupaten/kota
+        return auth()->user()->isAdmin();
+    }
 
     public static function form(Form $form): Form
     {

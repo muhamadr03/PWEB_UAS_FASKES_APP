@@ -112,7 +112,7 @@
                                 <i class="bi bi-star-fill text-warning me-1"></i> Rating:
                                 <span class="badge bg-warning text-dark rounded-pill ms-1 py-1 px-2">{{ $item->rating }} / 5</span>
                             </p>
-                        @endif
+                        @endif 
 
                         <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
                             <div>

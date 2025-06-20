@@ -9,33 +9,47 @@ use Illuminate\Support\Facades\Hash;
 class AdminUserSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Jalankan seed database.
      */
     public function run(): void
     {
-        // Pastikan user tidak duplikat sebelum membuat
+        // Membuat pengguna super admin
+        if (User::where('email', 'superadmin@faskes.com')->doesntExist()) {
+            User::create([
+                'name' => 'Super Admin Faskes',
+                'email' => 'superadmin@faskes.com',
+                'password' => Hash::make('password'), // Password: 'password'
+                'role' => User::ROLE_SUPER_ADMIN, // Menggunakan konstanta
+            ]);
+            $this->command->info('Pengguna Super Admin (superadmin@faskes.com) berhasil ditambahkan.');
+        } else {
+            $this->command->info('Pengguna Super Admin (superadmin@faskes.com) sudah ada.');
+        }
+
+        // Membuat pengguna admin
         if (User::where('email', 'admin@faskes.com')->doesntExist()) {
             User::create([
                 'name' => 'Admin Faskes',
                 'email' => 'admin@faskes.com',
-                'password' => Hash::make('password'), // Ganti dengan password kuat!
-                'role' => 'admin',
+                'password' => Hash::make('password'), // Password: 'password'
+                'role' => User::ROLE_ADMIN, // Menggunakan konstanta
             ]);
-            $this->command->info('User admin berhasil ditambahkan.');
+            $this->command->info('Pengguna Admin (admin@faskes.com) berhasil ditambahkan.');
         } else {
-            $this->command->info('User admin sudah ada.');
+            $this->command->info('Pengguna Admin (admin@faskes.com) sudah ada.');
         }
 
+        // Membuat pengguna biasa
         if (User::where('email', 'user@faskes.com')->doesntExist()) {
             User::create([
-                'name' => 'User Biasa',
+                'name' => 'Pengguna Biasa',
                 'email' => 'user@faskes.com',
-                'password' => Hash::make('password'),
-                'role' => 'user',
+                'password' => Hash::make('password'), // Password: 'password'
+                'role' => User::ROLE_USER, // Menggunakan konstanta
             ]);
-            $this->command->info('User biasa berhasil ditambahkan.');
+            $this->command->info('Pengguna Biasa (user@faskes.com) berhasil ditambahkan.');
         } else {
-            $this->command->info('User biasa sudah ada.');
+            $this->command->info('Pengguna Biasa (user@faskes.com) sudah ada.');
         }
     }
 }

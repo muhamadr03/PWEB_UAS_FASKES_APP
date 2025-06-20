@@ -4,6 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProvinsiResource\Pages;
 use App\Models\Provinsi;
+use App\Models\User; // Pastikan ini diimpor
+use Illuminate\Database\Eloquent\Model; // Pastikan ini diimpor
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -19,25 +21,63 @@ class ProvinsiResource extends Resource
     protected static ?string $pluralModelLabel = 'Provinsi';
     protected static ?string $modelLabel = 'Provinsi'; // Label model di UI
 
+    // --- Otorisasi untuk ProvinsiResource ---
+    // Semua metode ini akan memeriksa apakah user adalah ADMIN (BUKAN SUPER_ADMIN)
+    public static function canViewAny(): bool
+    {
+        // Hanya admin yang bisa melihat daftar provinsi
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canCreate(): bool
+    {
+        // Hanya admin yang bisa membuat provinsi
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        // Hanya admin yang bisa mengedit provinsi
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        // Hanya admin yang bisa menghapus provinsi
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        // Hanya admin yang bisa menghapus banyak provinsi
+        return auth()->user()->isAdmin();
+    }
+
+    public static function canView(Model $record): bool
+    {
+        // Hanya admin yang bisa melihat detail provinsi
+        return auth()->user()->isAdmin();
+    }
+
     // Metode untuk mendefinisikan form saat membuat/mengedit data
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 TextInput::make('nama')
-                    ->required() // Kolom wajib diisi
-                    ->maxLength(45) // Batasan panjang karakter
-                    ->unique(ignoreRecord: true) // Nama provinsi harus unik (saat edit, abaikan record saat ini)
-                    ->placeholder('Contoh: Jawa Barat'), // Placeholder
+                    ->required()
+                    ->maxLength(45)
+                    ->unique(ignoreRecord: true) // Nama provinsi harus unik
+                    ->placeholder('Contoh: Jawa Barat'),
                 TextInput::make('ibukota')
                     ->required()
                     ->maxLength(45)
                     ->placeholder('Contoh: Bandung'),
                 TextInput::make('latitude')
-                    ->numeric() // Hanya menerima angka
+                    ->numeric()
                     ->required()
-                    ->rules(['regex:/^(\-?\d+(\.\d+)?)$/']) // Regex untuk validasi format double (angka desimal, bisa negatif)
-                    ->step(0.000001) // Akurasi langkah untuk input numerik
+                    ->rules(['regex:/^(\-?\d+(\.\d+)?)$/'])
+                    ->step(0.000001)
                     ->placeholder('Contoh: -6.9175'),
                 TextInput::make('longitude')
                     ->numeric()
@@ -54,30 +94,30 @@ class ProvinsiResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama')
-                    ->searchable() // Kolom dapat dicari
-                    ->sortable(), // Kolom dapat diurutkan
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('ibukota')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('latitude'),
                 TextColumn::make('longitude'),
-                TextColumn::make('created_at') // Tampilkan timestamp pembuatan data
-                    ->dateTime() // Format sebagai tanggal dan waktu
+                TextColumn::make('created_at')
+                    ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true), // Bisa disembunyikan/ditampilkan di tabel
-                TextColumn::make('updated_at') // Tampilkan timestamp pembaruan data
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                // Anda bisa menambahkan filter di sini jika dibutuhkan
+                //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(), // Aksi edit
-                Tables\Actions\DeleteAction::make(), // Aksi delete
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
-            ->bulkActions([ // Aksi untuk multiple records (misal: delete banyak)
+            ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
