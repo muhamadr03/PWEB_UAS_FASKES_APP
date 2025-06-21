@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('faskes~', function (Blueprint $table) {
-            //
+        Schema::table('faskes', function (Blueprint $table) {
+            $table->string('foto')->nullable()->after('kategori_id');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('faskes~', function (Blueprint $table) {
-            //
+        Schema::table('faskes', function (Blueprint $table) {
+            $table->dropColumn('foto');
         });
     }
 };

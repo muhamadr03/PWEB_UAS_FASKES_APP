@@ -11,13 +11,15 @@ use App\Models\User; // Pastikan ini diimpor
 use Illuminate\Database\Eloquent\Model; // Pastikan ini diimpor
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea; // Untuk kolom alamat yang lebih besar
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Forms\Components\FileUpload; // Untuk field upload di form
+use Filament\Tables\Columns\ImageColumn; // <<< TAMBAHKAN INI untuk menampilkan gambar di tabel
 
 
 class FaskesResource extends Resource
@@ -26,41 +28,35 @@ class FaskesResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
     protected static ?string $modelLabel = 'Fasilitas Kesehatan';
     protected static ?string $pluralModelLabel = 'Fasilitas Kesehatan';
-    protected static ?string $navigationGroup = 'Manajemen Faskes'; // Grup navigasi terpisah
+    protected static ?string $navigationGroup = 'Manajemen Faskes';
 
 
-    // --- Otorisasi untuk FaskesResource (dan resource lainnya seperti Provinsi, Kabkota, dll.) ---
-    // Semua metode ini akan memeriksa apakah user adalah ADMIN (BUKAN SUPER_ADMIN)
-    public static function canViewAny(): bool // <<< PINDAHKAN INI KE ATAS
+    // --- Otorisasi untuk FaskesResource ---
+    public static function canViewAny(): bool
     {
-        // Hanya admin yang bisa melihat daftar faskes
         return auth()->user()->isAdmin();
     }
-
     public static function canCreate(): bool
     {
         return auth()->user()->isAdmin();
     }
-
     public static function canEdit(Model $record): bool
     {
         return auth()->user()->isAdmin();
     }
-
     public static function canDelete(Model $record): bool
     {
         return auth()->user()->isAdmin();
     }
-
     public static function canDeleteAny(): bool
     {
         return auth()->user()->isAdmin();
     }
-
     public static function canView(Model $record): bool
     {
         return auth()->user()->isAdmin();
     }
+
 
     public static function form(Form $form): Form
     {
@@ -74,20 +70,20 @@ class FaskesResource extends Resource
                     ->maxLength(45)
                     ->nullable()
                     ->placeholder('Contoh: Dinas Kesehatan'),
-                Textarea::make('alamat') // Menggunakan Textarea untuk alamat
+                Textarea::make('alamat')
                     ->required()
                     ->maxLength(100)
-                    ->rows(3) // Tinggi textarea 3 baris
+                    ->rows(3)
                     ->placeholder('Contoh: Jl. Diponegoro No. 123'),
                 TextInput::make('website')
                     ->maxLength(45)
-                    ->url() // Validasi input harus URL
+                    ->url()
                     ->nullable()
                     ->label('Website (URL)')
                     ->placeholder('Contoh: https://www.rsud-arifinachmad.go.id'),
                 TextInput::make('email')
                     ->maxLength(45)
-                    ->email() // Validasi input harus email
+                    ->email()
                     ->nullable()
                     ->placeholder('Contoh: info@rsud-arifinachmad.go.id'),
                 TextInput::make('rating')
@@ -112,7 +108,7 @@ class FaskesResource extends Resource
                 // Dropdown untuk Foreign Keys
                 Select::make('kabkota_id')
                     ->label('Kabupaten/Kota')
-                    ->options(Kabkota::all()->pluck('nama', 'id')) // Ambil data dari model Kabkota
+                    ->options(Kabkota::all()->pluck('nama', 'id'))
                     ->searchable()
                     ->required()
                     ->native(false),
@@ -128,6 +124,14 @@ class FaskesResource extends Resource
                     ->searchable()
                     ->required()
                     ->native(false),
+                // <<< FIELD UPLOAD FOTO DI FORM INI
+                FileUpload::make('foto')
+                    ->label('Foto Faskes')
+                    ->image() // Hanya menerima file gambar
+                    ->directory('faskes-photos') // Folder di dalam storage/app/public untuk menyimpan gambar
+                    ->maxSize(2048) // Ukuran maksimal 2MB
+                    ->columnSpanFull(), // Mengambil seluruh lebar kolom di form
+                // >>> AKHIR FIELD UPLOAD FOTO
             ]);
     }
 
@@ -135,24 +139,30 @@ class FaskesResource extends Resource
     {
         return $table
             ->columns([
+                // <<< KOLOM FOTO INI
+                ImageColumn::make('foto')
+                    ->label('Foto')
+                    ->circular() // Membuat gambar tampil melingkar (opsional)
+                    ->toggleable(isToggledHiddenByDefault: true), // Bisa disembunyikan/ditampilkan
+                // >>> AKHIR KOLOM FOTO
                 TextColumn::make('nama')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('jenisFaskes.nama') // Menampilkan nama jenis faskes dari relasi
+                TextColumn::make('jenisFaskes.nama')
                     ->label('Jenis Faskes')
                     ->sortable(),
-                TextColumn::make('kategori.nama') // Menampilkan nama kategori dari relasi
+                TextColumn::make('kategori.nama')
                     ->label('Kategori')
                     ->sortable(),
-                TextColumn::make('kabkota.nama') // Menampilkan nama kab/kota dari relasi
+                TextColumn::make('kabkota.nama')
                     ->label('Kab/Kota')
                     ->sortable(),
                 TextColumn::make('alamat')
-                    ->wrap() // Bungkus teks jika terlalu panjang
-                    ->limit(50), // Batasi tampilan 50 karakter
+                    ->wrap()
+                    ->limit(50),
                 TextColumn::make('rating'),
                 TextColumn::make('nama_pengelola')
-                    ->toggleable(isToggledHiddenByDefault: true), // Sembunyikan default
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('website')
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('email')
@@ -171,7 +181,7 @@ class FaskesResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                SelectFilter::make('jenis_faskes_id') // Filter data tabel berdasarkan jenis faskes
+                SelectFilter::make('jenis_faskes_id')
                     ->label('Filter Jenis Faskes')
                     ->options(JenisFaskes::all()->pluck('nama', 'id')),
                 SelectFilter::make('kategori_id')

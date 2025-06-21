@@ -20,7 +20,8 @@ class Faskes extends Model
         'latitude',
         'longitude',
         'jenis_faskes_id',
-        'kategori_id'
+        'kategori_id',
+        'foto'
     ];
 
     // Relasi Many-to-One: Banyak Faskes dimiliki oleh satu Kabkota

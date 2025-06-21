@@ -12,6 +12,21 @@
                 {{ $faskes->nama }}
             </h1>
 
+            @if($faskes->foto)
+                <div class="row justify-content-center mb-4"> {{-- Menggunakan row dan col untuk centering --}}
+                    <div class="col-md-8">
+                        <img src="{{ asset('storage/' . $faskes->foto) }}" class="img-fluid rounded-4 shadow-sm" alt="Foto {{ $faskes->nama }}" style="max-height: 400px; object-fit: contain; width: 100%;">
+                    </div>
+                </div>
+            @else
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-8 text-center text-muted">
+                        <img src="{{ asset('images/faskes_placeholder.png') }}" class="img-fluid rounded-4 shadow-sm" alt="Tidak ada foto" style="max-height: 300px; object-fit: contain; width: 100%;">
+                        <p class="mt-2">Foto faskes tidak tersedia.</p>
+                    </div>
+                </div>
+            @endif
+
             <div class="row mb-4 g-4"> {{-- Menggunakan g-4 untuk jarak antar kolom --}}
                 <div class="col-md-6">
                     <h5 class="fw-bold text-dark mb-3"><i class="bi bi-info-circle-fill me-2 text-primary"></i> Detail Informasi</h5>

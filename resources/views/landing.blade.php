@@ -90,6 +90,13 @@
         @forelse ($faskes as $item)
             <div class="col">
                 <div class="card h-100 shadow-lg border-0 rounded-4 overflow-hidden card-hover animate__animated animate__fadeInUp animate__delay-{{ $loop->index * 0.1 }}s"> {{-- Delay animasi per kartu --}}
+                    @if($item->foto) {{-- Tampilkan gambar hanya jika ada --}}
+                        <img src="{{ asset('storage/' . $item->foto) }}" class="card-img-top" alt="Foto {{ $item->nama }}" style="height: 200px; object-fit: cover;">
+                    @else
+                        {{-- Placeholder jika tidak ada foto --}}
+                        <img src="{{ asset('images/faskes_placeholder.png') }}" class="card-img-top" alt="Tidak ada foto" style="height: 200px; object-fit: cover;">
+                        {{-- INGAT: Anda perlu membuat file public/images/faskes_placeholder.png ini --}}
+                    @endif
                     <div class="card-header bg-gradient-primary text-white py-3 border-0">
                         <h5 class="mb-0 fw-bold">{{ $item->nama }}</h5>
                     </div>
