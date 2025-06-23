@@ -123,3 +123,14 @@
 .navbar .btn {
     font-weight: 500; /* Medium weight */
 }
+
+.navbar-brand-logo {
+    height: 48px; /* Atur tinggi logo di sini (sesuaikan) */
+    margin-right: 8px; /* Jarak antara logo dan teks (sesuaikan) */
+    object-fit: contain; /* Memastikan gambar tidak terdistorsi */
+    transition: transform 0.3s ease-in-out; /* Efek transisi saat hover */
+}
+
+.navbar-brand-logo:hover {
+    transform: scale(1.05); /* Sedikit membesar saat di-hover */
+}

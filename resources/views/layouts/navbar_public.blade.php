@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 fixed-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand fw-bold fs-4 text-primary animate__animated animate__fadeInLeft" href="{{ route('welcome') }}">
-            Direktori <span class="text-info">Faskes</span>
+            <img src="{{ asset('assets/images/sehatku.png') }}" alt="Logo Nama Website Anda" class="navbar-brand-logo">
+            {{-- Ganti dengan nama website Anda --}}
+            FASKES <span class="text-info">SEHATKU</span>
         </a>
         <button class="navbar-toggler animate__animated animate__fadeInRight" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
