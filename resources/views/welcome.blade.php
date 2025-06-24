@@ -81,8 +81,8 @@
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
                     <img src="https://via.placeholder.com/180/007bff/FFFFFF?text=Rizky" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Rizky Ramadhan" width="180" height="180">
-                    <h5 class="fw-bold mb-1">Rizky Ramadhan</h5>
-                    <p class="text-muted small mb-3">Project Lead & Backend Dev</p>
+                    <h5 class="fw-bold mb-1">Muhamad Rojali</h5>
+                    <p class="text-muted small mb-3">Ketua</p>
                     <div class="d-flex justify-content-center gap-3">
                         <a href="https://github.com/rizkyramadhan" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
                         <a href="https://instagram.com/rizkyramadhan" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
@@ -96,8 +96,8 @@
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
                     <img src="https://via.placeholder.com/180/17a2b8/FFFFFF?text=Maulana" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Maulana Rafi" width="180" height="180">
-                    <h5 class="fw-bold mb-1">Maulana Rafi</h5>
-                    <p class="text-muted small mb-3">Frontend Developer</p>
+                    <h5 class="fw-bold mb-1">Muhamad Bili Gunawan</h5>
+                    <p class="text-muted small mb-3">Anggota</p>
                     <div class="d-flex justify-content-center gap-3">
                         <a href="https://github.com/maulanarafi" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
                         <a href="https://instagram.com/maulanarafi" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
@@ -111,8 +111,8 @@
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
                     <img src="https://via.placeholder.com/180/28a745/FFFFFF?text=Dewi" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Dewi Anjani" width="180" height="180">
-                    <h5 class="fw-bold mb-1">Dewi Anjani</h5>
-                    <p class="text-muted small mb-3">UI/UX Designer</p>
+                    <h5 class="fw-bold mb-1">Linda Agistina Handani</h5>
+                    <p class="text-muted small mb-3">Anggota</p>
                     <div class="d-flex justify-content-center gap-3">
                         <a href="https://github.com/dewi.anjani" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
                         <a href="https://instagram.com/dewi.anjani" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
@@ -126,8 +126,8 @@
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
                     <img src="https://via.placeholder.com/180/ffc107/FFFFFF?text=Fikri" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Fikri Alamsyah" width="180" height="180">
-                    <h5 class="fw-bold mb-1">Fikri Alamsyah</h5>
-                    <p class="text-muted small mb-3">Fullstack Developer</p>
+                    <h5 class="fw-bold mb-1">Shifa Nur Fauziyyah</h5>
+                    <p class="text-muted small mb-3">Anggota</p>
                     <div class="d-flex justify-content-center gap-3">
                         <a href="https://github.com/fikrialamsyah" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
                         <a href="https://instagram.com/fikrialamsyah" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
@@ -141,8 +141,8 @@
             <div class="col-md-3 col-sm-6 text-center mt-4 mx-auto">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
                     <img src="https://via.placeholder.com/180/6c757d/FFFFFF?text=Nabila" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Nabila Syafira" width="180" height="180">
-                    <h5 class="fw-bold mb-1">Nabila Syafira</h5>
-                    <p class="text-muted small mb-3">Content Writer & QA</p>
+                    <h5 class="fw-bold mb-1">Riza Alfira Nasution</h5>
+                    <p class="text-muted small mb-3">Anggota</p>
                     <div class="d-flex justify-content-center gap-3">
                         <a href="https://github.com/nabilasyafira" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
                         <a href="https://instagram.com/nabilasyafira" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
