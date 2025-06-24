@@ -108,7 +108,7 @@
             {{-- Anggota 3 --}}
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
-                    <img src="assets\images\linda.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Linda" width="180" height="180">
+                    <img src="assets\images\linda.jpeg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Linda" width="180" height="180">
                     <h5 class="fw-bold mb-1">Linda Agistina Handani</h5>
                     <p class="text-muted small mb-3">UI/UX Designer</p>
                     <div class="d-flex justify-content-center gap-3">
