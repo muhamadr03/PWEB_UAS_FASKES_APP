@@ -129,10 +129,9 @@
                     <h5 class="fw-bold mb-1">Shifa Nur Fauziyyah</h5>
                     <p class="text-muted small mb-3">Anggota</p>
                     <div class="d-flex justify-content-center gap-3">
-                        <a href="https://github.com/fikrialamsyah" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
-                        <a href="https://instagram.com/fikrialamsyah" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
-                        <a href="https://wa.me/6281234567893" target="_blank" class="text-success social-icon-hover"><i class="bi bi-whatsapp fs-4"></i></a>
-                        <a href="https://linkedin.com/in/fikrialamsyah" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
+                        <a href="https://github.com/ShifaFzyh" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
+                        <a href="www.instagram.com/shaa.nur_05" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://www.linkedin.com/in/shifa-nur-fauziyyah-977a5532b/" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
                     </div>
                 </div>
             </div>
@@ -171,7 +170,7 @@
                         <div class="d-flex align-items-center mb-3">
                             <img src="https://via.placeholder.com/60/007bff/FFFFFF?text=AP" class="rounded-circle me-3 shadow-sm" alt="Andi Pratama" width="60" height="60">
                             <div>
-                                <h5 class="card-title mb-0 fw-bold">Andi Pratama</h5>
+                                <h5 class="card-title mb-0 fw-bold">Sayyed Muhammad</h5>
                                 <small class="text-muted">Pengguna Aktif</small>
                             </div>
                         </div>
@@ -190,8 +189,8 @@
                         <div class="d-flex align-items-center mb-3">
                             <img src="https://via.placeholder.com/60/17a2b8/FFFFFF?text=SM" class="rounded-circle me-3 shadow-sm" alt="Siti Marlina" width="60" height="60">
                             <div>
-                                <h5 class="card-title mb-0 fw-bold">Siti Marlina</h5>
-                                <small class="text-muted">Ibu Rumah Tangga</small>
+                                <h5 class="card-title mb-0 fw-bold">Faturahman</h5>
+                                <small class="text-muted">Bapak Rumah Tangga</small>
                             </div>
                         </div>
                         <div class="mb-3 text-warning fs-5">
