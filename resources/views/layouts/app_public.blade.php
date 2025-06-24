@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direktori Fasilitas Kesehatan</title>
+    <title>Sehatku</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <h5 class="fw-bold text-primary">Direktori Faskes</h5>
+                    <h5 class="fw-bold text-primary">Faskes Sehatku</h5>
                     <p class="text-secondary small">Temukan fasilitas kesehatan dengan mudah.</p>
                 </div>
                 <div class="col-md-6">

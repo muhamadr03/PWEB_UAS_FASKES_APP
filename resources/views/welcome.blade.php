@@ -82,7 +82,7 @@
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
                     <img src="assets\images\rojali.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Rojali" width="180" height="180">
                     <h5 class="fw-bold mb-1">Muhamad Rojali</h5>
-                    <p class="text-muted small mb-3">Ketua</p>
+                    <p class="text-muted small mb-3">Project Manager</p>
                     <div class="d-flex justify-content-center gap-3">
                         <a href="https://github.com/muhamadr03" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
                         <a href="https://www.instagram.com/mhmdrojali_27?igsh=azBtaWYxNXdxOWZ3" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
@@ -96,7 +96,7 @@
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
                     <img src="assets\images\bili.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Bili" width="180" height="180">
                     <h5 class="fw-bold mb-1">Muhamad Bili Gunawan</h5>
-                    <p class="text-muted small mb-3">Anggota</p>
+                    <p class="text-muted small mb-3">Front-End Developer</p>
                     <div class="d-flex justify-content-center gap-3">
                         <a href="https://github.com/biligunawan" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
                         <a href="https://www.instagram.com/billygnwns?igsh=MTZwNDI4ZjRzY3o1Ng==" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
@@ -110,7 +110,7 @@
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
                     <img src="assets\images\linda.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Linda" width="180" height="180">
                     <h5 class="fw-bold mb-1">Linda Agistina Handani</h5>
-                    <p class="text-muted small mb-3">Anggota</p>
+                    <p class="text-muted small mb-3">UI/UX Designer</p>
                     <div class="d-flex justify-content-center gap-3">
                         <a href="https://github.com/Lindaagstna" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
                         <a href="https://www.instagram.com/lindaagstna11/" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
@@ -122,12 +122,12 @@
             {{-- Anggota 4 --}}
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
-                    <img src="assets\images\sipa.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Shifa" width="180" height="180">
+                    <img src="assets\images\shifa.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Shifa" width="180" height="180">
                     <h5 class="fw-bold mb-1">Shifa Nur Fauziyyah</h5>
-                    <p class="text-muted small mb-3">Anggota</p>
+                    <p class="text-muted small mb-3">Database Administrator</p>
                     <div class="d-flex justify-content-center gap-3">
                         <a href="https://github.com/ShifaFzyh" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
-                        <a href="www.instagram.com/shaa.nur_05" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://www.instagram.com/shaa.nur_05" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
                         <a href="https://www.linkedin.com/in/shifa-nur-fauziyyah-977a5532b/" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
                     <img src="assets\images\rija.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Riza" width="180" height="180">
                     <h5 class="fw-bold mb-1">Riza Alfira Nasution</h5>
-                    <p class="text-muted small mb-3">Anggota</p>
+                    <p class="text-muted small mb-3">Content Creator</p>
                     <div class="d-flex justify-content-center gap-3">
                         <a href="https://github.com/rizalfiraa" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
                         <a href="https://www.instagram.com/riizalfiranst?igsh=aGFkbjgxbXdweG56" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
