@@ -80,14 +80,13 @@
             {{-- Anggota 1 --}}
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
-                    <img src="https://via.placeholder.com/180/007bff/FFFFFF?text=Rizky" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Rizky Ramadhan" width="180" height="180">
+                    <img src="assets\images\rojali.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Rojali" width="180" height="180">
                     <h5 class="fw-bold mb-1">Muhamad Rojali</h5>
                     <p class="text-muted small mb-3">Ketua</p>
                     <div class="d-flex justify-content-center gap-3">
-                        <a href="https://github.com/rizkyramadhan" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
-                        <a href="https://instagram.com/rizkyramadhan" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="text-success social-icon-hover"><i class="bi bi-whatsapp fs-4"></i></a>
-                        <a href="https://linkedin.com/in/rizkyramadhan" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
+                        <a href="https://github.com/muhamadr03" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
+                        <a href="https://www.instagram.com/mhmdrojali_27?igsh=azBtaWYxNXdxOWZ3" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://www.linkedin.com/in/muhamad-rojali-93b125329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
                     </div>
                 </div>
             </div>
@@ -95,14 +94,13 @@
             {{-- Anggota 2 --}}
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
-                    <img src="https://via.placeholder.com/180/17a2b8/FFFFFF?text=Maulana" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Maulana Rafi" width="180" height="180">
+                    <img src="assets\images\bili.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Bili" width="180" height="180">
                     <h5 class="fw-bold mb-1">Muhamad Bili Gunawan</h5>
                     <p class="text-muted small mb-3">Anggota</p>
                     <div class="d-flex justify-content-center gap-3">
-                        <a href="https://github.com/maulanarafi" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
-                        <a href="https://instagram.com/maulanarafi" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
-                        <a href="https://wa.me/6281234567891" target="_blank" class="text-success social-icon-hover"><i class="bi bi-whatsapp fs-4"></i></a>
-                        <a href="https://linkedin.com/in/maulanarafi" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
+                        <a href="https://github.com/biligunawan" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
+                        <a href="https://www.instagram.com/billygnwns?igsh=MTZwNDI4ZjRzY3o1Ng==" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://www.linkedin.com/in/bili-gunawan-7221a033b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
                     </div>
                 </div>
             </div>
@@ -110,14 +108,13 @@
             {{-- Anggota 3 --}}
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
-                    <img src="https://via.placeholder.com/180/28a745/FFFFFF?text=Dewi" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Dewi Anjani" width="180" height="180">
+                    <img src="assets\images\linda.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Linda" width="180" height="180">
                     <h5 class="fw-bold mb-1">Linda Agistina Handani</h5>
                     <p class="text-muted small mb-3">Anggota</p>
                     <div class="d-flex justify-content-center gap-3">
-                        <a href="https://github.com/dewi.anjani" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
-                        <a href="https://instagram.com/dewi.anjani" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
-                        <a href="https://wa.me/6281234567892" target="_blank" class="text-success social-icon-hover"><i class="bi bi-whatsapp fs-4"></i></a>
-                        <a href="https://linkedin.com/in/dewi.anjani" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
+                        <a href="https://github.com/Lindaagstna" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
+                        <a href="https://www.instagram.com/lindaagstna11/" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://www.linkedin.com/in/lindaagstna11/" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
                     </div>
                 </div>
             </div>
@@ -125,14 +122,13 @@
             {{-- Anggota 4 --}}
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
-                    <img src="https://via.placeholder.com/180/ffc107/FFFFFF?text=Fikri" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Fikri Alamsyah" width="180" height="180">
+                    <img src="assets\images\sipa.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Shifa" width="180" height="180">
                     <h5 class="fw-bold mb-1">Shifa Nur Fauziyyah</h5>
                     <p class="text-muted small mb-3">Anggota</p>
                     <div class="d-flex justify-content-center gap-3">
-                        <a href="https://github.com/fikrialamsyah" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
-                        <a href="https://instagram.com/fikrialamsyah" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
-                        <a href="https://wa.me/6281234567893" target="_blank" class="text-success social-icon-hover"><i class="bi bi-whatsapp fs-4"></i></a>
-                        <a href="https://linkedin.com/in/fikrialamsyah" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
+                        <a href="https://github.com/ShifaFzyh" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
+                        <a href="www.instagram.com/shaa.nur_05" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://www.linkedin.com/in/shifa-nur-fauziyyah-977a5532b/" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
                     </div>
                 </div>
             </div>
@@ -140,14 +136,13 @@
             {{-- Anggota 5 --}}
             <div class="col-md-3 col-sm-6 text-center mt-4 mx-auto">
                 <div class="card h-100 shadow-sm border-0 rounded-4 p-3 card-hover">
-                    <img src="https://via.placeholder.com/180/6c757d/FFFFFF?text=Nabila" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Nabila Syafira" width="180" height="180">
+                    <img src="assets\images\rija.jpg" class="rounded-circle mb-3 mx-auto shadow-sm" alt="Riza" width="180" height="180">
                     <h5 class="fw-bold mb-1">Riza Alfira Nasution</h5>
                     <p class="text-muted small mb-3">Anggota</p>
                     <div class="d-flex justify-content-center gap-3">
-                        <a href="https://github.com/nabilasyafira" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
-                        <a href="https://instagram.com/nabilasyafira" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
-                        <a href="https://wa.me/6281234567894" target="_blank" class="text-success social-icon-hover"><i class="bi bi-whatsapp fs-4"></i></a>
-                        <a href="https://linkedin.com/in/nabilasyafira" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
+                        <a href="https://github.com/rizalfiraa" target="_blank" class="text-dark social-icon-hover"><i class="bi bi-github fs-4"></i></a>
+                        <a href="https://www.instagram.com/riizalfiranst?igsh=aGFkbjgxbXdweG56" target="_blank" class="text-danger social-icon-hover"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://www.linkedin.com/in/riiza-alfiraa-78b45233b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-primary social-icon-hover"><i class="bi bi-linkedin fs-4"></i></a>
                     </div>
                 </div>
             </div>
@@ -171,7 +166,7 @@
                         <div class="d-flex align-items-center mb-3">
                             <img src="https://via.placeholder.com/60/007bff/FFFFFF?text=AP" class="rounded-circle me-3 shadow-sm" alt="Andi Pratama" width="60" height="60">
                             <div>
-                                <h5 class="card-title mb-0 fw-bold">Andi Pratama</h5>
+                                <h5 class="card-title mb-0 fw-bold">Sayyed Muhammad</h5>
                                 <small class="text-muted">Pengguna Aktif</small>
                             </div>
                         </div>
@@ -190,8 +185,8 @@
                         <div class="d-flex align-items-center mb-3">
                             <img src="https://via.placeholder.com/60/17a2b8/FFFFFF?text=SM" class="rounded-circle me-3 shadow-sm" alt="Siti Marlina" width="60" height="60">
                             <div>
-                                <h5 class="card-title mb-0 fw-bold">Siti Marlina</h5>
-                                <small class="text-muted">Ibu Rumah Tangga</small>
+                                <h5 class="card-title mb-0 fw-bold">Faturahman</h5>
+                                <small class="text-muted">Bapak Rumah Tangga</small>
                             </div>
                         </div>
                         <div class="mb-3 text-warning fs-5">
