@@ -22,41 +22,35 @@ class JenisFaskesResource extends Resource
     protected static ?string $modelLabel = 'Jenis Fasilitas Kesehatan';
 
     // --- Otorisasi untuk JenisFaskesResource ---
-    // Semua metode ini akan memeriksa apakah user adalah ADMIN (BUKAN SUPER_ADMIN)
+    // Semua metode ini akan memeriksa apakah user adalah ADMIN ATAU SUPER_ADMIN
     public static function canViewAny(): bool
     {
-        // Hanya admin yang bisa melihat daftar jenis faskes
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canCreate(): bool
     {
-        // Hanya admin yang bisa membuat jenis faskes
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canEdit(Model $record): bool
     {
-        // Hanya admin yang bisa mengedit jenis faskes
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canDelete(Model $record): bool
     {
-        // Hanya admin yang bisa menghapus jenis faskes
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canDeleteAny(): bool
     {
-        // Hanya admin yang bisa menghapus banyak jenis faskes
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canView(Model $record): bool
     {
-        // Hanya admin yang bisa melihat detail jenis faskes
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function form(Form $form): Form

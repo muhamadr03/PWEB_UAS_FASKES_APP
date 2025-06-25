@@ -3,66 +3,58 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
-use App\Models\User; // Pastikan ini diimpor
-use Illuminate\Database\Eloquent\Model; // Pastikan ini diimpor
+use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth; // Pastikan ini diimpor untuk auth()->user()
+use Illuminate\Support\Facades\Auth;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users'; // Icon untuk menu user
-    protected static ?string $navigationGroup = 'Manajemen Pengguna'; // Kelompokkan di sidebar
-    protected static ?string $modelLabel = 'Pengguna'; // Label untuk user
-    protected static ?string $pluralModelLabel = 'Pengguna'; // Label jamak
+    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationGroup = 'Manajemen Pengguna';
+    protected static ?string $modelLabel = 'Pengguna';
+    protected static ?string $pluralModelLabel = 'Pengguna';
 
 
-    // --- Otorisasi untuk UserResource ---
-    // Semua metode ini akan memeriksa apakah user adalah SUPER ADMIN
+    // --- Otorisasi untuk UserResource (HANYA SUPER_ADMIN) ---
     public static function canViewAny(): bool
     {
-        // Hanya super_admin yang bisa melihat daftar user
-        return auth()->user()->isSuperAdmin();
+        return auth()->user()->isSuperAdmin(); // HANYA SUPER_ADMIN
     }
 
     public static function canCreate(): bool
     {
-        // Hanya super_admin yang bisa membuat user
-        return auth()->user()->isSuperAdmin();
+        return auth()->user()->isSuperAdmin(); // HANYA SUPER_ADMIN
     }
 
     public static function canEdit(Model $record): bool
     {
-        // Hanya super_admin yang bisa mengedit user
-        return auth()->user()->isSuperAdmin();
+        return auth()->user()->isSuperAdmin(); // HANYA SUPER_ADMIN
     }
 
     public static function canDelete(Model $record): bool
     {
-        // Hanya super_admin yang bisa menghapus user lain (tidak bisa menghapus dirinya sendiri)
-        return auth()->user()->isSuperAdmin() && $record->id !== auth()->id();
+        // Super_admin bisa menghapus user lain, tapi tidak boleh menghapus dirinya sendiri
+        return auth()->user()->isSuperAdmin() && $record->id !== auth()->id(); // HANYA SUPER_ADMIN, dan bukan diri sendiri
     }
 
     public static function canDeleteAny(): bool
     {
-        // Hanya super_admin yang bisa menghapus banyak user
-        return auth()->user()->isSuperAdmin();
-    }
-    public static function canView(Model $record): bool
-    {
-        // Hanya super_admin yang bisa melihat detail user
-        return auth()->user()->isSuperAdmin();
+        return auth()->user()->isSuperAdmin(); // HANYA SUPER_ADMIN
     }
 
+    public static function canView(Model $record): bool
+    {
+        return auth()->user()->isSuperAdmin(); // HANYA SUPER_ADMIN
+    }
 
     public static function form(Form $form): Form
     {
@@ -104,9 +96,9 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('role')
                     ->badge()
                     ->colors([
-                        'success' => User::ROLE_SUPER_ADMIN, // Warna hijau untuk Super Admin
-                        'primary' => User::ROLE_ADMIN, // Warna biru untuk Admin
-                        'gray' => User::ROLE_USER, // Warna abu-abu untuk User Biasa
+                        'success' => User::ROLE_SUPER_ADMIN,
+                        'primary' => User::ROLE_ADMIN,
+                        'gray' => User::ROLE_USER,
                     ])
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -136,22 +128,21 @@ class UserResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
-    }
+            }
 
-    // --- BAGIAN getRelations() dan getPages() masih di sini ---
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+            public static function getRelations(): array
+            {
+                return [
+                    //
+                ];
+            }
 
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
-        ];
-    }
-}
+            public static function getPages(): array
+            {
+                return [
+                    'index' => Pages\ListUsers::route('/'),
+                    'create' => Pages\CreateUser::route('/create'),
+                    'edit' => Pages\EditUser::route('/{record}/edit'),
+                ];
+            }
+        }

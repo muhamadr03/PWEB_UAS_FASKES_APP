@@ -7,14 +7,14 @@ use App\Models\Kabkota;
 use App\Models\Provinsi; // Penting: Impor model Provinsi
 use App\Models\User; // Pastikan ini diimpor
 use Illuminate\Database\Eloquent\Model; // Pastikan ini diimpor
-use Filament\Forms\Components\Select; // Untuk dropdown
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Tables;
-use Filament\Tables\Filters\SelectFilter; // Untuk filter dropdown di tabel
+use Filament\Tables\Filters\SelectFilter;
 
 class KabkotaResource extends Resource
 {
@@ -25,53 +25,47 @@ class KabkotaResource extends Resource
     protected static ?string $modelLabel = 'Kabupaten/Kota';
 
     // --- Otorisasi untuk KabkotaResource ---
-    // Semua metode ini akan memeriksa apakah user adalah ADMIN (BUKAN SUPER_ADMIN)
+    // Semua metode ini akan memeriksa apakah user adalah ADMIN ATAU SUPER_ADMIN
     public static function canViewAny(): bool
     {
-        // Hanya admin yang bisa melihat daftar kabupaten/kota
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canCreate(): bool
     {
-        // Hanya admin yang bisa membuat kabupaten/kota
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canEdit(Model $record): bool
     {
-        // Hanya admin yang bisa mengedit kabupaten/kota
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canDelete(Model $record): bool
     {
-        // Hanya admin yang bisa menghapus kabupaten/kota
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canDeleteAny(): bool
     {
-        // Hanya admin yang bisa menghapus banyak kabupaten/kota
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canView(Model $record): bool
     {
-        // Hanya admin yang bisa melihat detail kabupaten/kota
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Select::make('provinsi_id') // Kolom foreign key
-                    ->label('Provinsi') // Label di form
-                    ->options(Provinsi::all()->pluck('nama', 'id')) // Ambil daftar provinsi dari DB
-                    ->searchable() // Bisa dicari di dropdown
+                Select::make('provinsi_id')
+                    ->label('Provinsi')
+                    ->options(Provinsi::all()->pluck('nama', 'id'))
+                    ->searchable()
                     ->required()
-                    ->native(false), // Untuk tampilan dropdown yang lebih modern (Filament default)
+                    ->native(false),
                 TextInput::make('nama')
                     ->required()
                     ->maxLength(100)
@@ -99,7 +93,7 @@ class KabkotaResource extends Resource
                 TextColumn::make('nama')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('provinsi.nama') // Menampilkan nama provinsi dari relasi
+                TextColumn::make('provinsi.nama')
                     ->label('Provinsi')
                     ->searchable()
                     ->sortable(),
@@ -115,7 +109,7 @@ class KabkotaResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                SelectFilter::make('provinsi_id') // Filter data berdasarkan provinsi
+                SelectFilter::make('provinsi_id')
                     ->label('Filter per Provinsi')
                     ->options(Provinsi::all()->pluck('nama', 'id'))
                     ->native(false),

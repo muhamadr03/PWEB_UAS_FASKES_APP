@@ -5,7 +5,7 @@ use App\Http\Controllers\PublicFaskesController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth; // Pastikan ini ada
 
-/*
+/* 
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------

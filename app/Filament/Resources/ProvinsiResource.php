@@ -15,51 +15,44 @@ use Filament\Tables;
 
 class ProvinsiResource extends Resource
 {
-    protected static ?string $model = Provinsi::class; // Model yang terkait dengan resource ini
-    protected static ?string $navigationIcon = 'heroicon-o-map'; // Ikon navigasi di sidebar Filament
-    protected static ?string $navigationGroup = 'Data Master Lokasi'; // Grup navigasi
+    protected static ?string $model = Provinsi::class;
+    protected static ?string $navigationIcon = 'heroicon-o-map';
+    protected static ?string $navigationGroup = 'Data Master Lokasi';
     protected static ?string $pluralModelLabel = 'Provinsi';
-    protected static ?string $modelLabel = 'Provinsi'; // Label model di UI
+    protected static ?string $modelLabel = 'Provinsi';
 
     // --- Otorisasi untuk ProvinsiResource ---
-    // Semua metode ini akan memeriksa apakah user adalah ADMIN (BUKAN SUPER_ADMIN)
+    // Semua metode ini akan memeriksa apakah user adalah ADMIN ATAU SUPER_ADMIN
     public static function canViewAny(): bool
     {
-        // Hanya admin yang bisa melihat daftar provinsi
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canCreate(): bool
     {
-        // Hanya admin yang bisa membuat provinsi
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canEdit(Model $record): bool
     {
-        // Hanya admin yang bisa mengedit provinsi
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canDelete(Model $record): bool
     {
-        // Hanya admin yang bisa menghapus provinsi
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canDeleteAny(): bool
     {
-        // Hanya admin yang bisa menghapus banyak provinsi
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
     public static function canView(Model $record): bool
     {
-        // Hanya admin yang bisa melihat detail provinsi
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin();
     }
 
-    // Metode untuk mendefinisikan form saat membuat/mengedit data
     public static function form(Form $form): Form
     {
         return $form
@@ -67,7 +60,7 @@ class ProvinsiResource extends Resource
                 TextInput::make('nama')
                     ->required()
                     ->maxLength(45)
-                    ->unique(ignoreRecord: true) // Nama provinsi harus unik
+                    ->unique(ignoreRecord: true)
                     ->placeholder('Contoh: Jawa Barat'),
                 TextInput::make('ibukota')
                     ->required()
@@ -88,7 +81,6 @@ class ProvinsiResource extends Resource
             ]);
     }
 
-    // Metode untuk mendefinisikan tabel saat menampilkan daftar data
     public static function table(Table $table): Table
     {
         return $table
@@ -124,15 +116,13 @@ class ProvinsiResource extends Resource
             ]);
     }
 
-    // Metode untuk mendefinisikan relasi (jika ada relasi yang ingin ditampilkan di sini)
     public static function getRelations(): array
     {
         return [
-            // Contoh: ProvinsiResource\RelationManagers\KabkotasRelationManager::class,
+            //
         ];
     }
 
-    // Metode untuk mendefinisikan halaman-halaman yang terkait dengan resource ini
     public static function getPages(): array
     {
         return [

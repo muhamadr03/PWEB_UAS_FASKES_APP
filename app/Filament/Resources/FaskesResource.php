@@ -4,11 +4,11 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\FaskesResource\Pages;
 use App\Models\Faskes;
-use App\Models\Kabkota; // Impor model terkait
-use App\Models\JenisFaskes; // Impor model terkait
-use App\Models\Kategori; // Impor model terkait
-use App\Models\User; // Pastikan ini diimpor
-use Illuminate\Database\Eloquent\Model; // Pastikan ini diimpor
+use App\Models\Kabkota;
+use App\Models\JenisFaskes;
+use App\Models\Kategori;
+use App\Models\User; // Pastikan ini diimpor untuk otorisasi
+use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -18,8 +18,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
-use Filament\Forms\Components\FileUpload; // Untuk field upload di form
-use Filament\Tables\Columns\ImageColumn; // <<< TAMBAHKAN INI untuk menampilkan gambar di tabel
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ImageColumn;
 
 
 class FaskesResource extends Resource
@@ -32,31 +32,36 @@ class FaskesResource extends Resource
 
 
     // --- Otorisasi untuk FaskesResource ---
+    // Semua metode ini akan memeriksa apakah user adalah ADMIN ATAU SUPER_ADMIN
     public static function canViewAny(): bool
     {
-        return auth()->user()->isAdmin();
-    }
-    public static function canCreate(): bool
-    {
-        return auth()->user()->isAdmin();
-    }
-    public static function canEdit(Model $record): bool
-    {
-        return auth()->user()->isAdmin();
-    }
-    public static function canDelete(Model $record): bool
-    {
-        return auth()->user()->isAdmin();
-    }
-    public static function canDeleteAny(): bool
-    {
-        return auth()->user()->isAdmin();
-    }
-    public static function canView(Model $record): bool
-    {
-        return auth()->user()->isAdmin();
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin(); // Izinkan Admin ATAU Super Admin
     }
 
+    public static function canCreate(): bool
+    {
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin(); // Izinkan Admin ATAU Super Admin
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin(); // Izinkan Admin ATAU Super Admin
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin(); // Izinkan Admin ATAU Super Admin
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin(); // Izinkan Admin ATAU Super Admin
+    }
+
+    public static function canView(Model $record): bool
+    {
+        return auth()->user()->isAdmin() || auth()->user()->isSuperAdmin(); // Izinkan Admin ATAU Super Admin
+    }
 
     public static function form(Form $form): Form
     {
@@ -105,7 +110,6 @@ class FaskesResource extends Resource
                     ->step(0.000001)
                     ->placeholder('Contoh: 101.4477'),
 
-                // Dropdown untuk Foreign Keys
                 Select::make('kabkota_id')
                     ->label('Kabupaten/Kota')
                     ->options(Kabkota::all()->pluck('nama', 'id'))
@@ -124,14 +128,12 @@ class FaskesResource extends Resource
                     ->searchable()
                     ->required()
                     ->native(false),
-                // <<< FIELD UPLOAD FOTO DI FORM INI
                 FileUpload::make('foto')
                     ->label('Foto Faskes')
-                    ->image() // Hanya menerima file gambar
-                    ->directory('faskes-photos') // Folder di dalam storage/app/public untuk menyimpan gambar
-                    ->maxSize(2048) // Ukuran maksimal 2MB
-                    ->columnSpanFull(), // Mengambil seluruh lebar kolom di form
-                // >>> AKHIR FIELD UPLOAD FOTO
+                    ->image()
+                    ->directory('faskes-photos')
+                    ->maxSize(2048)
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -139,12 +141,11 @@ class FaskesResource extends Resource
     {
         return $table
             ->columns([
-                // <<< KOLOM FOTO INI
                 ImageColumn::make('foto')
                     ->label('Foto')
-                    ->circular() // Membuat gambar tampil melingkar (opsional)
-                    ->toggleable(isToggledHiddenByDefault: true), // Bisa disembunyikan/ditampilkan
-                // >>> AKHIR KOLOM FOTO
+                    ->size(50)
+                    ->circular()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('nama')
                     ->searchable()
                     ->sortable(),
@@ -200,21 +201,21 @@ class FaskesResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
-    }
+        }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+        public static function getRelations(): array
+        {
+            return [
+                //
+            ];
+        }
 
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListFaskes::route('/'),
-            'create' => Pages\CreateFaskes::route('/create'),
-            'edit' => Pages\EditFaskes::route('/{record}/edit'),
-        ];
+        public static function getPages(): array
+        {
+            return [
+                'index' => Pages\ListFaskes::route('/'),
+                'create' => Pages\CreateFaskes::route('/create'),
+                'edit' => Pages\EditFaskes::route('/{record}/edit'),
+            ];
+        }
     }
-}

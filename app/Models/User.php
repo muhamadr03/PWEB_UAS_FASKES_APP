@@ -55,6 +55,10 @@ class User extends Authenticatable implements FilamentUser
         ];
     }
 
+    protected $attributes = [
+        'role' => self::ROLE_USER,
+    ];
+
     public function isSuperAdmin(): bool
     {
         return $this->role === self::ROLE_SUPER_ADMIN;
